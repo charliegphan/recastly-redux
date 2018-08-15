@@ -38,9 +38,11 @@ describe('reducers', function() {
         currentVideo: null
       })).to.throw();
     });
+
     it('should have an empty array as its default state', function() {
       expect(videoListReducer(undefined, {type: 'FOO_BAR'})).to.deep.equal([]);
     });
+    
     it('should change state to a new video list when a "CHANGE_VIDEO_LIST" action is passed in', function() {
       expect(videoListReducer(undefined, changeVideoList([{script: 'but it\'s my only line!'}]))).to.deep.equal([{script: 'but it\'s my only line!'}]);
     });
