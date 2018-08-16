@@ -21,7 +21,6 @@ const mapDispatchToProps = (dispatch) => {
 }
 
 const mapStateToProps = (state) => {
-    console.log(state)
     return {
         videos: state.videoList
     }
