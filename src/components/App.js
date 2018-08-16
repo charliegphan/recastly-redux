@@ -8,6 +8,7 @@ import changeVideo from '../actions/currentVideo.js';
 import changeVideoList from '../actions/videoList.js';
 import exampleVideoData from '../data/exampleVideoData.js';
 import store from '../store/store.js';
+import SearchContainer from '../containers/SearchContainer.js';
 
 export default class App extends React.Component {
   constructor(props) {
