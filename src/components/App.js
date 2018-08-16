@@ -9,6 +9,7 @@ import changeVideoList from '../actions/videoList.js';
 import exampleVideoData from '../data/exampleVideoData.js';
 import store from '../store/store.js';
 import SearchContainer from '../containers/SearchContainer.js';
+import handleVideoSearch from '../actions/search.js';
 
 export default class App extends React.Component {
   constructor(props) {
@@ -21,7 +22,7 @@ export default class App extends React.Component {
   }
 
   componentDidMount() {
-    this.getYouTubeVideos('react tutorials');
+    store.dispatch(handleVideoSearch('react tutorials'));
   }
 
   handleVideoListEntryTitleClick(video) {
@@ -53,10 +54,11 @@ export default class App extends React.Component {
             <VideoPlayer video={this.state.currentVideo}/>
           </div>
           <div className="col-md-5">
-            <VideoList
+            {/* <VideoList
               handleVideoListEntryTitleClick={this.handleVideoListEntryTitleClick.bind(this)}
               videos={this.state.videos}
-            />
+            /> */}
+            <VideoListContainer/>
           </div>
         </div>
       </div>

@@ -18,11 +18,4 @@ const mapDispatchToProps = (dispatch) => {
     }
 }
 
-const mapStateToProps = (state) => {
-    return {
-        videos: state.videos,
-        video: state.video
-    }
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(SearchContainer);
+export default connect(null, mapDispatchToProps)(SearchContainer);
