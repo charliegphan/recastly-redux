@@ -1,3 +1,5 @@
+import axios from 'axios';
+
 // var searchYouTube = ({key, query, max = 5}, callback) => {
 //   $.get('https://www.googleapis.com/youtube/v3/search', {
 //     part: 'snippet',
@@ -19,24 +21,40 @@
 //     });
 // };
 
-var searchYouTube2 = ({key, query, max = 5}, callback) => {
-  var esc = encodeURIComponent;
-  var data = {
-    part: 'snippet',
-    key: key,
-    q: query,
-    maxResults: max,
-    type: 'video',
-    videoEmbeddable: 'true'
-  }
-  var query = Object.keys(data)
-    .map(k => esc(k) + '=' + esc(data[k]))
-    .join('&');
+// var searchYouTube2 = ({key, query, max = 5}, callback) => {
+//   var esc = encodeURIComponent;
+//   var data = {
+//     part: 'snippet',
+//     key: key,
+//     q: query,
+//     maxResults: max,
+//     type: 'video',
+//     videoEmbeddable: 'true'
+//   }
+//   var query = Object.keys(data)
+//     .map(k => esc(k) + '=' + esc(data[k]))
+//     .join('&');
 
-  fetch(`https://www.googleapis.com/youtube/v3/search?${query}`)
-    .then(response => response.json())
-    .then(data => data.items)
-    .then(items => callback(items))
-}
+//   fetch(`https://www.googleapis.com/youtube/v3/search?${query}`)
+//     .then(response => response.json())
+//     .then(data => data.items)
+//     .then(items => callback(items))
+// }
 
-export default searchYouTube2;
+var searchYouTube3 = ({key, query, max = 25}, callback) => {
+  axios.get('https://www.googleapis.com/youtube/v3/search', {
+    params: {
+      part: 'snippet',
+      key: key,
+      q: query,
+      maxResults: max,
+      type: 'video',
+      videoEmbeddable: 'true'
+    }
+  })
+    .then(response => response)
+    .then(({ data }) => data)
+    .then(({ items }) => callback(items));
+};
+
+export default searchYouTube3;

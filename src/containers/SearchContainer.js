@@ -10,10 +10,10 @@ import handleVideoSearch from '../actions/search.js';
 //state and dispatch mappings.
 
 const mapDispatchToProps = (dispatch) => {
-    return {
-        handleSearchInputChange: (q) => dispatch(handleVideoSearch(q))
-    }
-}
+  return {
+    handleSearchInputChange: (q) => dispatch(handleVideoSearch(q))
+  };
+};
 
 var SearchContainer = connect(null, mapDispatchToProps)(Search);
 

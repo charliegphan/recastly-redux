@@ -21,7 +21,7 @@ const App = () => {
       <Nav/>
       <div className="row">
         <div className="col-md-7">
-          <VideoPlayerContainer />
+          <VideoPlayerContainer/>
         </div>
         <div className="col-md-5">
           <VideoListContainer/>
@@ -29,6 +29,6 @@ const App = () => {
       </div>
     </div>
   );
-}
+};
 
 export default App;
