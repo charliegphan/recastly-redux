@@ -6,4 +6,8 @@ var decrementPage = () => ({
   type: 'DECREMENT_PAGE',
 });
 
-export { incrementPage, decrementPage };
+var resetPage = () => ({
+  type: 'RESET_PAGE',
+});
+
+export { incrementPage, decrementPage, resetPage };

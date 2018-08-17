@@ -7,6 +7,9 @@ var pageReducer = (state = 0, action) => {
   if (action.type === 'DECREMENT_PAGE' && state > 0) {
     return state - 1;
   }
+  if (action.type === 'RESET_PAGE') {
+    return 0;
+  }
   return state;
 };
 
